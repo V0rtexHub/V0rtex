@@ -1,41 +1,49 @@
-# Compiled Lua sources
-luac.out
+local plr = game:GetService("Players").LocalPlayer,false,false,"HotMoms69!",false
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
+local w = library:CreateWindow("Autofarm Stuff")
+local b = w:CreateFolder("AutoFarm")
+b:Toggle("AutoSpeed",function(bool)
+    ae = bool
+    if ae then
+        spawn(function()
+            while ae and wait() do
+                game:GetService("ReplicatedStorage").Remotes.AddSpeed:FireServer()
+            end
+        end)
+    end
+end)
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+b:Toggle("CollectOrbs/Hoops",function(bool)
+    ae = bool
+    if ae then
+        spawn(function()
+            while ae and wait() do
+                local char = game.Players.LocalPlayer.Character
+var = unpack(game.Workspace.GameAssets.GlobalAssets.OrbSpawns:GetChildren())
+var.CFrame = char.HumanoidRootPart.CFrame
+end
+end)
+end
+end)
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
+b:Toggle("AutoRebirth",function(bool)
+    ae = bool
+    if ae then
+        spawn(function()
+            while ar and wait() do
+                game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
+            end
+        end)
+    end
+end)
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
+b:Toggle("Delete PopUps",function(bool)
+    ae = bool
+ if ae then
+     spawn(function()
+         while av and wait() do
+             game:GetService("Players").LocalPlayer.PlayerGui.V2.VisualClicks:Destroy()
+         end
+     end)
+ end
+end)
